@@ -22,7 +22,7 @@ async def read_all_books():
 @app.get("/books/{book_title}")
 async def read_book(book_title: str):
     for book in BOOKS:
-        if book.get("title").casefold() == book_title.casefold():
+        if book.get("title").casefold() == book_title.casefold(): # type: ignore
             return book
 
 
@@ -31,7 +31,7 @@ async def read_book(book_title: str):
 async def read_cateogry_by_query(category: str):
     books_to_return = []
     for book in BOOKS:
-        if book.get("category").casefold() == category.casefold():
+        if book.get("category").casefold() == category.casefold(): # type: ignore
             books_to_return.append(book)
     return books_to_return
 
@@ -40,7 +40,7 @@ async def read_cateogry_by_query(category: str):
 async def read_books_by_author_path(author: str):
     books_to_return = []
     for book in BOOKS:
-        if book.get("author").casefold() == author.casefold():
+        if book.get("author").casefold() == author.casefold(): # type: ignore
             books_to_return.append(book)
     return books_to_return
 
@@ -51,7 +51,7 @@ async def read_author_category_by_query(author: str, category: str):
     books_to_return = []
     for book in BOOKS:
         if book.get("author").casefold() == author.casefold() and \
-                book.get('category').casefold() == category.casefold():
+                book.get('category').casefold() == category.casefold(): # type: ignore
             books_to_return.append(book)
 
     return books_to_return
